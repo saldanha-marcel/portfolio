@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marcelo Saldanha - Pipeline de Preços de Combustíveis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#dfdcfe",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#e2dfff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "surface-bright": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#1a1a2e",
+                    "on-primary-fixed": "#390c00",
+                    "surface": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "primary-fixed-dim": "#ffb59d",
+                    "on-secondary-fixed-variant": "#45445f",
+                    "tertiary-fixed": "#e2e0fc",
+                    "surface-tint": "#ab3500",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-surface-variant": "#594139",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#5c5c78",
+                    "on-primary-fixed-variant": "#832600",
+                    "tertiary-container": "#9997b1",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary-fixed": "#ffdbd0",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#5d5c74",
+                    "outline-variant": "#e1bfb5",
+                    "surface-container": "#eeeeee",
+                    "surface-variant": "#e2e2e2",
+                    "inverse-primary": "#ffb59d",
+                    "surface-container-low": "#f3f3f3",
+                    "outline": "#8d7168",
+                    "on-secondary-container": "#61607c",
+                    "on-secondary-fixed": "#191931",
+                    "on-primary-container": "#5f1900",
+                    "on-error": "#ffffff",
+                    "background": "#f9f9f9",
+                    "primary": "#ab3500",
+                    "on-tertiary-fixed-variant": "#45455b",
+                    "on-tertiary-container": "#303045",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed-dim": "#c5c3e4",
+                    "tertiary-fixed-dim": "#c6c4df",
+                    "primary-container": "#ff6b35"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "12px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "margin-desktop": "40px",
+                    "container-max": "1280px",
+                    "section-padding": "120px",
+                    "margin-mobile": "20px",
+                    "stack-md": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["DM Sans"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-lg": ["DM Sans"],
+                    "headline-lg": ["Sora"],
+                    "display": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "label-md": ["DM Sans"],
+                    "display-mobile": ["Sora"],
+                    "body-md": ["DM Sans"],
+                    "headline-sm": ["Sora"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dimmed-overlay {
+            backdrop-filter: blur(8px);
+            background-color: rgba(26, 28, 28, 0.7);
+        }
+        .modal-shadow {
+            box-shadow: 0px 4px 20px rgba(26, 26, 46, 0.1);
+        }
+        /* Custom scrollbar for modal content */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface overflow-hidden">
+<!-- Background Content (Simulating Screen 3) -->
+<main class="fixed inset-0 z-0 overflow-hidden select-none pointer-events-none opacity-40 grayscale-[0.2]">
+<img alt="Dashboard background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWC_5nFNyme_sqWUinay6mJZlwQggP7ddqUpvjbcIWcxfGtFH-FFWOU4p2JBAmMV6FrAWlw7I1c2hG0MxrLDsQE99ciKe2veZmjzZfmbOyS8sV4iev9e2FL3R6KdppMI24uBzkomVGTiuMWusEnVP3Bzjy92vGsqVg1VUkeRVxSqjWayBaeJypkBvZJxBrucbyh4trOG56n7EMZlpJjuNl7C_C42FR9U8PHKBWTkbY1QHfjMzBOL2yHC1OQzJ82URCyauoJdoSPJ0"/>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-margin-mobile md:p-margin-desktop dimmed-overlay">
+<!-- Modal Container -->
+<div class="bg-surface-container-lowest w-full max-w-4xl max-h-[921px] rounded-xl modal-shadow flex flex-col overflow-hidden relative animate-in fade-in zoom-in duration-300">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 z-10 p-2 bg-surface-container/50 hover:bg-surface-container-highest rounded-full transition-colors group" onclick="window.history.back()">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">close</span>
+</button>
+<!-- Scrollable Content -->
+<div class="overflow-y-auto custom-scroll flex-1">
+<!-- Header Image/Icon Block -->
+<div class="relative h-64 md:h-80 w-full bg-inverse-surface overflow-hidden">
+<img alt="Fuel Pipeline Visualization" class="w-full h-full object-cover opacity-60" data-alt="A professional high-tech data visualization interface representing complex oil and gas logistics. The scene features glowing digital flow lines and data nodes in vibrant primary orange and deep navy blue. The lighting is moody and cinematic, suggesting a sophisticated command center environment. The visual style is modern, sharp, and corporate, emphasizing precision and large-scale data processing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaiAdd3jv3iBl_aRwa0VZIwSxp9Sp1D41FbOu5J_2I350SsMU7A7NEZYYqdFzEQGo6Fh48EBvZRsSK9qa__4H1Aac_VCANj1zt5zMFOP5NvqoLgFGbFaj65_ezRoDrUE6DTCR8ffa44PuLgnXTAixOZrS4Lgo8nds8fLF39NOeJ6j5ttHgJN4TKYuEQ8w5v4XjDeNYcoDJFGHYViG-cFRzKjbKIkkdze4MQKoJxVs_c5x5ngtTH0Baamoys_Wlyr7wqBMsz8cB4Xs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface to-transparent"></div>
+<div class="absolute bottom-6 left-6 md:left-10">
+<div class="flex items-center gap-stack-sm mb-stack-sm">
+<span class="bg-green-100 text-green-800 text-label-sm font-label-sm px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                Concluído
+                            </span>
+</div>
+<h1 class="font-headline-md text-headline-md md:font-headline-lg md:text-headline-lg text-on-primary leading-tight max-w-2xl">
+                            Pipeline de Preços de Combustíveis
+                        </h1>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="p-6 md:p-10">
+<!-- Tech Stack -->
+<div class="flex flex-wrap gap-2 mb-stack-lg">
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">Python</span>
+<span class="bg-primary text-on-primary px-3 py-1 rounded-full text-label-md font-label-md">PySpark</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-label-md font-label-md">Databricks</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-label-md font-label-md">Delta Lake</span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-label-md font-label-md">SQL</span>
+</div>
+<!-- Description Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Main Story -->
+<div class="lg:col-span-2 space-y-stack-lg">
+<section>
+<h3 class="font-headline-sm text-headline-sm mb-stack-sm text-on-surface">Sobre o Projeto</h3>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                                    Este projeto automatiza o monitoramento de preços de combustíveis coletados pela ANP (Agência Nacional do Petróleo). O sistema processa volumes massivos de dados diários para fornecer insights estratégicos sobre tendências de mercado e paridade de importação.
+                                </p>
+</section>
+<section>
+<h3 class="font-headline-sm text-headline-sm mb-stack-sm text-on-surface">Arquitetura Medallion</h3>
+<div class="space-y-4">
+<div class="flex gap-4 p-4 rounded-xl border border-surface-container-high bg-surface-container-low">
+<div class="w-12 h-12 shrink-0 bg-[#cd7f32] rounded-lg flex items-center justify-center text-white font-bold">B</div>
+<div>
+<h4 class="font-bold text-on-surface">Bronze Layer</h4>
+<p class="text-label-md text-on-surface-variant">Dados brutos ingeridos via API e arquivos CSV sem transformações, garantindo a linhagem histórica dos dados da ANP.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-xl border border-surface-container-high bg-surface-container-low">
+<div class="w-12 h-12 shrink-0 bg-[#c0c0c0] rounded-lg flex items-center justify-center text-white font-bold">S</div>
+<div>
+<h4 class="font-bold text-on-surface">Silver Layer</h4>
+<p class="text-label-md text-on-surface-variant">Limpeza, tipagem de dados e filtragem de outliers. Aplicação de regras de negócio e enriquecimento geográfico.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-xl border border-surface-container-high bg-surface-container-low">
+<div class="w-12 h-12 shrink-0 bg-[#ffd700] rounded-lg flex items-center justify-center text-white font-bold">G</div>
+<div>
+<h4 class="font-bold text-on-surface">Gold Layer</h4>
+<p class="text-label-md text-on-surface-variant">Tabelas agregadas prontas para consumo em Power BI, focadas em séries temporais e variações percentuais por região.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Results Sidebar -->
+<div class="lg:col-span-1 space-y-stack-lg">
+<div class="bg-surface-container p-6 rounded-xl border border-primary/10">
+<h3 class="font-headline-sm text-headline-sm mb-stack-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                                    Resultados
+                                </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<p class="text-label-md text-on-surface-variant"><strong>Redução de 40%</strong> no tempo de processamento de cargas diárias.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<p class="text-label-md text-on-surface-variant"><strong>Automação total</strong> da coleta de dados ANP via webscraping resiliente.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<p class="text-label-md text-on-surface-variant"><strong>Integração nativa</strong> com Databricks Unity Catalog para governança.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<p class="text-label-md text-on-surface-variant"><strong>Alertas em tempo real</strong> para anomalias de preços regionais.</p>
+</li>
+</ul>
+</div>
+<!-- GitHub Card Link -->
+<a class="block bg-inverse-surface p-6 rounded-xl hover:bg-surface-tint transition-all group overflow-hidden relative" href="#">
+<div class="relative z-10 flex items-center justify-between text-surface-bright">
+<div>
+<p class="text-label-sm opacity-80 uppercase tracking-tighter">Explorar Código</p>
+<h4 class="font-bold text-body-lg">Acessar Repositório</h4>
+</div>
+<span class="material-symbols-outlined text-display-mobile opacity-20 group-hover:opacity-100 transition-opacity">terminal</span>
+</div>
+<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary rounded-full blur-2xl opacity-20"></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer (Actions) -->
+<div class="p-6 bg-surface-container-low border-t border-surface-container-highest flex flex-col sm:flex-row justify-end gap-stack-md shrink-0">
+<button class="px-6 py-3 rounded-xl border-[1.5px] border-on-surface text-on-surface font-label-md hover:bg-on-surface hover:text-white transition-all flex items-center justify-center gap-2" onclick="window.history.back()">
+                    Fechar
+                </button>
+<button class="px-8 py-3 rounded-xl bg-primary-container text-on-primary-container font-label-md font-bold shadow-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                    Ver no GitHub
+                </button>
+</div>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple scale and fade in effect for the modal content on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.querySelector('.animate-in');
+            modal.classList.add('opacity-100', 'scale-100');
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.history.back();
+            }
+        });
+    </script>
+</body></html>

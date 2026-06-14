@@ -1,0 +1,474 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Marcelo Saldanha | Profissional de Dados</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e2dfff",
+                        "surface": "#f9f9f9",
+                        "on-primary-fixed-variant": "#832600",
+                        "on-tertiary-container": "#303045",
+                        "on-primary-fixed": "#390c00",
+                        "outline": "#8d7168",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#ff6b35",
+                        "secondary-container": "#dfdcfe",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed-dim": "#c5c3e4",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-container": "#61607c",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-variant": "#e2e2e2",
+                        "on-surface-variant": "#594139",
+                        "primary": "#ab3500",
+                        "on-primary-container": "#5f1900",
+                        "primary-fixed": "#ffdbd0",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#45445f",
+                        "tertiary-fixed": "#e2e0fc",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#e1bfb5",
+                        "surface-container": "#eeeeee",
+                        "surface-tint": "#ab3500",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#45455b",
+                        "primary-fixed-dim": "#ffb59d",
+                        "inverse-primary": "#ffb59d",
+                        "on-surface": "#1a1c1c",
+                        "tertiary": "#5d5c74",
+                        "on-secondary-fixed": "#191931",
+                        "tertiary-fixed-dim": "#c6c4df",
+                        "secondary": "#5c5c78",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#9997b1",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#1a1a2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "40px",
+                        "stack-md": "16px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["DM Sans"],
+                        "display-mobile": ["Sora"],
+                        "body-lg": ["DM Sans"],
+                        "headline-md": ["Sora"],
+                        "headline-sm": ["Sora"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "display": ["Sora"],
+                        "label-sm": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(26, 26, 46, 0.05);
+        }
+        .hero-pattern {
+            background-image: radial-gradient(#ab3500 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Navbar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 max-w-container-max mx-auto bg-surface-container-lowest dark:bg-surface-container-lowest shadow-sm">
+<div class="flex items-center">
+<a class="font-headline-sm text-headline-sm font-bold text-on-surface" href="#">Marcelo Saldanha<span class="text-primary-container">.</span></a>
+</div>
+<nav class="hidden md:flex items-center gap-stack-lg">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#sobre">Sobre</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#impacto">Impacto</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#projetos">Projetos</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#contato">Contato</a>
+</nav>
+<a class="bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform active:scale-95" href="#contato">
+            Fale Comigo
+        </a>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-section-padding text-center overflow-hidden transition-all duration-700 opacity-100 translate-y-0">
+<div class="absolute inset-0 hero-pattern pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm mb-stack-lg animate-fade-in">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                    Disponível para novas oportunidades
+                </div>
+<h1 class="font-display-mobile md:font-display text-display-mobile md:text-display text-on-surface mb-stack-md">
+                    Transformo dados brutos em <span class="text-primary-container">decisões</span> que movem negócios.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-stack-lg">
+                    Profissional de Dados com +6 anos de experiência simplificando a complexidade e gerando valor através de engenharia e análise avançada.
+                </p>
+<div class="flex flex-col md:flex-row gap-stack-md justify-center mb-stack-lg">
+<a class="bg-primary-container text-on-primary-container font-headline-sm text-headline-sm md:text-body-md px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all" href="#projetos">
+                        Ver Projetos
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a class="border-2 border-on-background text-on-background font-headline-sm text-headline-sm md:text-body-md px-8 py-4 rounded-xl font-bold hover:bg-on-background hover:text-surface transition-all" href="#">
+                        Baixar CV
+                    </a>
+</div>
+<div class="flex flex-wrap justify-center gap-3">
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">Python</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">SQL</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">Power BI</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">DBT</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">Databricks</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">Power Automate</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full font-label-md text-label-md text-on-surface-variant">Power Apps</span>
+</div>
+</div>
+</section>
+<!-- Sobre Mim Section -->
+<section class="bg-surface-container-low px-margin-mobile md:px-margin-desktop py-section-padding transition-all duration-700 opacity-100 translate-y-0" id="sobre">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-square rounded-2xl overflow-hidden shadow-xl">
+<img alt="Marcelo Saldanha" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0CO__6It2Fxya0TVPzmWv-_FPxuE4mYq9hEH0VXHek_svNpy86v23abW0dlcs5rkANitjZS0uHhAz2nYOmlBZaz_WwUjT2sdY8vMtSzqkojFLibdJUMiRqoW6AISiJdkyEj0cGvcH-ZBOiUGBuIgHXotHthBhKakcCMT0mWzDhJe-EaT8anIm1sQjTXW_3vHi2dC1QovgRfirQfCAwE__VenWn1pw132ocp69JNMeWCUzlE_ieayvibDDM144hsxIuZ_0cQx7TUtocg">
+</div>
+<div class="absolute -bottom-6 -right-6 md:right-10 bg-surface-container-lowest p-6 rounded-xl card-shadow animate-bounce-slow">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-primary mb-0 leading-tight">6+</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">anos de experiência</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-stack-md">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">Quem sou eu</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+                        Profissional de Dados com <span class="text-primary">visão de negócio</span>
+</h2>
+<div class="space-y-4 font-body-lg text-body-lg text-on-surface-variant">
+<p class="">Sou apaixonado por decifrar a história que os dados contam. Minha trajetória é marcada pela construção de pontes entre a tecnologia bruta e os objetivos estratégicos de grandes empresas.</p>
+<p class="">Não entrego apenas dashboards ou pipelines; entrego clareza operacional e vantagem competitiva.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-stack-md">
+<div class="p-4 bg-surface rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary mb-2">shopping_cart</span>
+<h4 class="font-headline-sm text-headline-sm text-sm mb-1">E-commerce</h4>
+</div>
+<div class="p-4 bg-surface rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary mb-2">account_balance</span>
+<h4 class="font-headline-sm text-headline-sm text-sm mb-1">Fintech</h4>
+</div>
+<div class="p-4 bg-surface rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary mb-2">engineering</span>
+<h4 class="font-headline-sm text-headline-sm text-sm mb-1">Engenharia</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impacto Section -->
+<section class="bg-surface px-margin-mobile md:px-margin-desktop py-section-padding transition-all duration-700 opacity-100 translate-y-0" id="impacto">
+<div class="max-w-container-max mx-auto text-center mb-stack-lg">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">Resultados</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">Números que falam por si</h2>
+</div>
+<div class="max-w-container-max mx-auto grid grid-cols-2 lg:grid-cols-3 gap-stack-md">
+<div class="p-8 bg-surface-container-lowest rounded-xl card-shadow border border-surface-variant flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+<span class="text-primary font-display-mobile text-display-mobile mb-2">6+</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-bold uppercase">Anos de atuação</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-xl card-shadow border border-surface-variant flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+<span class="text-primary font-display-mobile text-display-mobile mb-2">3</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-bold uppercase">Segmentos de mercado</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-xl card-shadow border border-surface-variant flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+<span class="text-primary font-display-mobile text-display-mobile mb-2">5+</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-bold uppercase">Automações robustas</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-xl card-shadow border border-surface-variant flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+<span class="text-primary font-display-mobile text-display-mobile mb-2">2</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-bold uppercase">Times globais integrados</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-xl card-shadow border border-surface-variant flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+<span class="text-primary font-display-mobile text-display-mobile mb-2">3</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-bold uppercase">Arquiteturas de dados</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-xl card-shadow border border-surface-variant flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+<span class="text-primary font-display-mobile text-display-mobile mb-2">100%</span>
+<p class="font-label-md text-label-md text-on-surface-variant font-bold uppercase">Foco em processos</p>
+</div>
+</div>
+</section>
+<!-- Projetos Section -->
+<section class="bg-surface-container-low px-margin-mobile md:px-margin-desktop py-section-padding transition-all duration-700 opacity-100 translate-y-0" id="projetos">
+<div class="max-w-container-max mx-auto mb-16">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold">Portfólio</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">Projetos &amp; Trabalhos</h2>
+</div>
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="bg-surface rounded-xl overflow-hidden card-shadow group hover:shadow-2xl transition-all duration-300">
+<div class="h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean, modern data visualization dashboard showing financial price charts and market trend lines. The interface uses a professional white and light gray background with bold orange highlights for critical data points. The lighting is bright and crisp, reflecting a modern corporate data analysis environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3i46CNgk-X7JemVppKYzMZBc55t3xSd8xaSQx47eY7oQ2WOEbFIEgQShWaUO0bkIMyKf5JBYpsPH-sJxs3F3Pe0YObrWErKY9mo7bfM6cj1yjnPTGfKQ8ovyoQflNNGu109rEhqGkI5Mr1HpsRo10Igxb9TMUcB0ce16pSt-VyMFWkWrzucVXi7O2LAyr7mxuNTdZATgsFRUWWPHKTkzUFg_auzR-YlRnHrKVbTDkDBv8dfaBl5fs6_bv7WmAlUdKxhJHgYKb5qQ">
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Python</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Pandas</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Pipeline de Preços</h3>
+<p class="text-on-surface-variant text-sm mb-4">Monitoramento e ETL automatizado de preços em tempo real para e-commerce.</p>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver mais <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface rounded-xl overflow-hidden card-shadow group hover:shadow-2xl transition-all duration-300">
+<div class="h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An abstract representation of sports data analytics featuring basketball court elements mixed with digital code and probability graphs. The primary colors are high-contrast white and deep blue, with vibrant orange accents highlighting winning odds. The atmosphere is energetic and analytical, capturing the spirit of modern sports engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPzzANGfOe2ct6eremIgyYz8rZFrH2DOTF3cffmtIlYE3zARCW0u3yt5feNO1DdnLOmVtfa2cySKJqB35DEVq4_pkGx2ia7vOCb6n52A523q0WEFbs5RFRfEwEJqzwPjkyMklSA-h7DLirCZ2MMlQgoXIUGZBjNlzLptfOZQdLbJOTov-POl-LKAHSWrJlEv0qpzDEPYgdy8cALie0W1oMGE0jW95S-Qcwa9pBbR9oWtDGPXN1jj9WYU1WYIGwNUma7pIwLk0TU0g">
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Scraping</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">SQL</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">NBA Odds Analysis</h3>
+<p class="text-on-surface-variant text-sm mb-4">Modelo preditivo de probabilidades esportivas baseado em dados históricos.</p>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver mais <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-surface rounded-xl overflow-hidden card-shadow group hover:shadow-2xl transition-all duration-300">
+<div class="h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A futuristic workspace featuring multiple monitors displaying automated workflow diagrams and connecting nodes. The lighting is soft and natural, emphasizing a high-productivity corporate setting. The design uses a clean, minimal aesthetic with precise orange highlights on active process paths, suggesting efficient automation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3uvKo7iN41UqM9SzozZNJy1gkfVe76Ka-OnMDv6k2OcrQ8TWSmhqyR7RyuE7EOZ2U6QL9X5Ic82_DlOCapoijYYCnJk3Hm5hQshS-JZE65bKFcqh3B-P2FPWoO5AYtD2vochsKriTI4-vEM9AMwXQdp9KH3jOG_uUhkp5ciPfXxS0vMHRCx2htW89VGWc34YM8mA8mzFChvCa8uzIRaHmOPqna1hG7EbPbZGdwAD-HMR4glbJ5XcuUiNy-JtHmKEV0H3FCYVbKX4">
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">P. Automate</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">API</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">GetE3 Autom.</h3>
+<p class="text-on-surface-variant text-sm mb-4">Automatização de processos de faturamento e integração ERP.</p>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver mais <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="bg-surface rounded-xl overflow-hidden card-shadow group hover:shadow-2xl transition-all duration-300">
+<div class="h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Detailed close-up of a high-resolution data dashboard displayed on a sleek laptop. The screen shows colorful bar charts and heatmaps in a bright, modern office environment. The palette is dominated by professional grays and whites with sharp, energetic orange elements denoting growth trends. The mood is focused and data-driven." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqhCgtTUIDkA35HQ7jzohkrgqOHdG8vr0Y_VKpruuONLkg52sO4QMOu47-ReZFBx__TVt1k3Kvi3vm07vkA7119Juk9_FyZ3MEZnlyqEicluOPvSsAK_VlGQLYaZjYBvZxgOIeOEwKdshydhOCsgSVzzocuBK8K-21wVsRotgaLfNkypOs-FXGHpmNqlDC7c6msGqJJzw6f3MjwuldsTBJhBv6CiImjV1-AcKthU5hs1WQ66hmecNyE74RjiL4UTVAQRe2dJd2s1E">
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Power BI</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">DAX</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Dashboard Converse</h3>
+<p class="text-on-surface-variant text-sm mb-4">Painel estratégico de vendas e metas para a marca Converse Brasil.</p>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver mais <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Project 5 -->
+<div class="bg-surface rounded-xl overflow-hidden card-shadow group hover:shadow-2xl transition-all duration-300">
+<div class="h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean, high-tech fintech mobile application interface shown on a premium smartphone. The UI is minimalist with spacious white layouts and elegant typography. Intense orange accents are used for primary call-to-action buttons. The lighting is clean and professional, emphasizing security and modern banking innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAssvrPQMxrx-ren3U1ppTtzUeFhdHMreKr_2QoydOXIRnQlkDvl3ivGsMx-8l-tcH5iyKGtyTFeIi3BbhGWfspeIFof8xLT9yO3Rf0pZ0c0yTAGipwe_jvdx5xd7fXdsIiQADV3oG8CJvJg3iahizEL6FnM8oSXUaWoA1555qnWZY7aqS5_6AMZI7nCWcIWhQTy5BY8d7kL3uFIO66Ir17inxNawCcHBDYWFJb0OnsPYVjUp3mpXlm4OvZ61QHeuxiurSpRzEzWXo">
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Databricks</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Spark</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Plataforma Santander</h3>
+<p class="text-on-surface-variant text-sm mb-4">Arquitetura de processamento em larga escala para transações bancárias.</p>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver mais <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Project 6 -->
+<div class="bg-surface rounded-xl overflow-hidden card-shadow group hover:shadow-2xl transition-all duration-300">
+<div class="h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Visual representation of a clustering algorithm showing colorful data clusters on a dark digital background. High-contrast orange nodes highlight significant customer segments. The aesthetic is sophisticated and mathematical, using glowing particles to represent individual data points in a high-tech light-mode layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvVVUOiiKA06dPFKs5WwPaiQsEaKYwuOI3AqlIV-IR4W2coKPFEsr-6cqRqw88wGy9MZyj3atHBaCg74FPtynCchq3D33-7I9EN6NJ9IiJDhtb_Y3oSjL7FZVD9DytPYQewQLZ28SB1X07xHZrD0xU76qX7bpbrmg6mNImV0GHaQp4wfL4bdVWjiPOSHF4n8K7X1qRUt9SER2rrVKvubbAMRNVE3c5lO5uiUtHbI8z5i--iygT4av4HkttlFncLqaKU-GdutBJvTA">
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Machine Learning</span>
+<span class="px-2 py-1 bg-surface-variant rounded text-xs font-bold text-on-surface-variant">Scikit-learn</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Clusterização Clientes</h3>
+<p class="text-on-surface-variant text-sm mb-4">Segmentação avançada de base de clientes para marketing direcionado.</p>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">Ver mais <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contato Section -->
+<section class="bg-inverse-surface text-surface px-margin-mobile md:px-margin-desktop py-section-padding transition-all duration-700 opacity-100 translate-y-0" id="contato">
+<div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-16">
+<div>
+<span class="text-primary-fixed-dim font-label-sm text-label-sm uppercase tracking-widest font-bold">Contato</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mt-4 mb-stack-lg leading-tight">Vamos construir algo <span class="text-primary-container">extraordinário</span> juntos?</h2>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">mail</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-surface-variant opacity-70">Email</p>
+<p class="font-body-lg text-body-lg">contato@marcelosaldanha.com.br</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">call</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-surface-variant opacity-70">Telefone</p>
+<p class="font-body-lg text-body-lg">+55 (11) 98765-4321</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim">share</span>
+</div>
+<div class="flex gap-4">
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">GitHub</a>
+<a class="hover:text-primary-fixed-dim transition-colors" href="#">Behance</a>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface rounded-2xl p-8 card-shadow text-on-surface">
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold">Nome</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="Seu nome" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold">Email</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="seu@email.com" type="email">
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold">Assunto</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="No que posso ajudar?" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md font-bold">Mensagem</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="Descreva seu projeto ou dúvida..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95" type="submit">
+                            Enviar Mensagem
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-stack-md bg-inverse-surface dark:bg-inverse-surface">
+<div class="max-w-container-max w-full flex flex-col md:flex-row justify-between items-center gap-8 border-b border-surface/10 pb-stack-lg">
+<a class="font-headline-sm text-headline-sm font-bold text-surface-bright" href="#">Marcelo Saldanha<span class="text-primary-container">.</span></a>
+<div class="flex gap-stack-lg">
+<a class="text-surface-variant opacity-80 font-label-sm text-label-sm hover:text-primary-fixed-dim transition-colors" href="#sobre">Sobre</a>
+<a class="text-surface-variant opacity-80 font-label-sm text-label-sm hover:text-primary-fixed-dim transition-colors" href="#impacto">Impacto</a>
+<a class="text-surface-variant opacity-80 font-label-sm text-label-sm hover:text-primary-fixed-dim transition-colors" href="#projetos">Projetos</a>
+<a class="text-surface-variant opacity-80 font-label-sm text-label-sm hover:text-primary-fixed-dim transition-colors" href="#contato">Contato</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface/5 flex items-center justify-center hover:bg-primary-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-surface-variant group-hover:text-on-primary-container">database</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface/5 flex items-center justify-center hover:bg-primary-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-surface-variant group-hover:text-on-primary-container">terminal</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface/5 flex items-center justify-center hover:bg-primary-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-surface-variant group-hover:text-on-primary-container">query_stats</span>
+</a>
+</div>
+</div>
+<p class="font-body-md text-body-md text-surface-variant opacity-60 mt-4 text-center">
+            © 2025 Marcelo Saldanha. Feito com ☕ e dados.
+        </p>
+</footer>
+<script>
+        // Smooth reveal on scroll interaction
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Simple Navbar effect on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('backdrop-blur-md', 'bg-surface-container-lowest/90');
+            } else {
+                header.classList.remove('backdrop-blur-md', 'bg-surface-container-lowest/90');
+            }
+        });
+    </script>
+
+
+</body></html>
