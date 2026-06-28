@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import Sobre from '../components/Sobre'
+import Impacto from '../components/Impacto'
+import Projetos from '../components/Projetos'
+import Contato from '../components/Contato'
+import Footer from '../components/Footer'
 
 export default function MarceloPortfolio() {
-  const [html, setHtml] = useState('')
-
-  useEffect(() => {
-    fetch('/stitch/marcelo-portfolio.html')
-      .then((r) => r.text())
-      .then((t) => setHtml(t))
-      .catch(() => setHtml('<p>Erro ao carregar conteúdo do Stitch.</p>'))
-  }, [])
-
-  if (!html) return <div>Carregando...</div>
-
-  return <div dangerouslySetInnerHTML={{ __html: html }} />
+  return (
+    <div className="min-h-screen bg-surface text-on-surface font-body-md overflow-x-hidden">
+      <Header />
+      <main className="pt-20">
+        <Hero />
+        <Sobre />
+        <Projetos />
+        <Contato />
+      </main>
+      <Footer />
+    </div>
+  )
 }
