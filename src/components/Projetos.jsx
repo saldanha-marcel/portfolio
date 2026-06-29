@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import dashcompras from '../assets/dashboard_compras.jpg'
-import email from '../assets/automation_email.jpg'
+import dashcompras from '../assets/dashboard_compras.png'
+import autoEmail from '../assets/automation_email.png'
 import pipelinePrecos from '../assets/pipeline_precos.png'
 import dashboardEcommerce from '../assets/dashboard_ecommerce.png'
 import plataformaSolicitacao from '../assets/plataforma_solicitacao.png'
@@ -30,7 +30,7 @@ export default function Projetos() {
       title: 'Automação E-mail',
       tech: ['Power Automate', 'Power Apps'],
       desc: 'Automatização de processos tabulação e controle de tarefas de e-mail',
-      img: 'email',
+      img: autoEmail,
       goal: 'Reduzir tarefas manuais no controle de tarefas e conectar sistemas que antes dependiam de conferência humana.',
       structure: 'O fluxo foi montado com gatilhos, tratamentos e gravado na base de dados de um App gerado com Power Apps',
       presentation: 'O projeto se destaca a automação de entradas de e-mail, controle e gestão, onde antes gastava 24 horas hoje é feito em 20 minutos. Tendo um dashboard em tempo real de todas entradas.'
