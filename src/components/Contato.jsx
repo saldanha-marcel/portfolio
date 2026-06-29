@@ -7,7 +7,8 @@ export default function Contato() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const formData = new FormData(event.currentTarget)
+    const form = event.currentTarget
+    const formData = new FormData(form)
     const payload = {
       nome: formData.get('nome'),
       email: formData.get('email'),
@@ -28,10 +29,11 @@ export default function Contato() {
       })
 
       if (!response.ok) {
-        throw new Error('contact_request_failed')
+        const data = await response.json().catch(() => null)
+        throw new Error(data?.error?.message || 'contact_request_failed')
       }
 
-      event.currentTarget.reset()
+      form.reset()
       setStatus('success')
       setFeedback('Mensagem enviada com sucesso.')
     } catch {
