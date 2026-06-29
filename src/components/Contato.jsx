@@ -1,4 +1,45 @@
+import { useState } from 'react'
+
 export default function Contato() {
+  const [status, setStatus] = useState('idle')
+  const [feedback, setFeedback] = useState('')
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const payload = {
+      nome: formData.get('nome'),
+      email: formData.get('email'),
+      assunto: formData.get('assunto'),
+      mensagem: formData.get('mensagem'),
+    }
+
+    setStatus('loading')
+    setFeedback('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        throw new Error('contact_request_failed')
+      }
+
+      event.currentTarget.reset()
+      setStatus('success')
+      setFeedback('Mensagem enviada com sucesso.')
+    } catch {
+      setStatus('error')
+      setFeedback('Nao foi possivel enviar sua mensagem. Tente novamente.')
+    }
+  }
+
   return (
     <section className="bg-inverse-surface text-surface px-margin-mobile md:px-margin-desktop py-section-padding" id="contato">
       <div className="max-w-container-max mx-auto grid lg:grid-cols-2 gap-16">
@@ -36,26 +77,33 @@ export default function Contato() {
           </div>
         </div>
         <div className="bg-surface rounded-2xl p-8 card-shadow text-on-surface">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="font-label-md text-label-md font-bold">Nome</label>
-                <input className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="Seu nome" type="text" />
+                <label className="font-label-md text-label-md font-bold" htmlFor="nome">Nome</label>
+                <input id="nome" name="nome" className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="Seu nome" type="text" required maxLength="120" />
               </div>
               <div className="space-y-2">
-                <label className="font-label-md text-label-md font-bold">Email</label>
-                <input className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="seu@email.com" type="email" />
+                <label className="font-label-md text-label-md font-bold" htmlFor="email">Email</label>
+                <input id="email" name="email" className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="seu@email.com" type="email" required maxLength="180" />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="font-label-md text-label-md font-bold">Assunto</label>
-              <input className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="No que posso ajudar?" type="text" />
+              <label className="font-label-md text-label-md font-bold" htmlFor="assunto">Assunto</label>
+              <input id="assunto" name="assunto" className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="No que posso ajudar?" type="text" required maxLength="160" />
             </div>
             <div className="space-y-2">
-              <label className="font-label-md text-label-md font-bold">Mensagem</label>
-              <textarea className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="Descreva seu projeto ou dúvida..." rows="4"></textarea>
+              <label className="font-label-md text-label-md font-bold" htmlFor="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" className="w-full bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary-container p-4" placeholder="Descreva seu projeto ou dúvida..." rows="4" required maxLength="2000"></textarea>
             </div>
-            <button className="w-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95" type="submit">Enviar Mensagem</button>
+            {feedback && (
+              <p className={status === 'success' ? 'text-sm font-bold text-green-700' : 'text-sm font-bold text-red-700'} role="status">
+                {feedback}
+              </p>
+            )}
+            <button className="w-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95 disabled:cursor-not-allowed disabled:opacity-70" type="submit" disabled={status === 'loading'}>
+              {status === 'loading' ? 'Enviando...' : 'Enviar Mensagem'}
+            </button>
           </form>
         </div>
       </div>
