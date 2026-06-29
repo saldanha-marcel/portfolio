@@ -88,7 +88,7 @@ app.post('/api/contact', async (request, response, next) => {
 
   try {
     const result = await pool.query(
-      `INSERT INTO contact_messages (nome, email, assunto, mensagem)
+      `INSERT INTO public.contact_messages (nome, email, assunto, mensagem)
        VALUES ($1, $2, $3, $4)
        RETURNING id, created_at`,
       [payload.nome, payload.email, payload.assunto, payload.mensagem]

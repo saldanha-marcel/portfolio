@@ -1,12 +1,8 @@
--- Run with psql. If your .env NAMEDB has another value, replace portfolio below.
-SELECT 'CREATE DATABASE portfolio'
-WHERE NOT EXISTS (
-  SELECT FROM pg_database WHERE datname = 'portfolio'
-)\gexec
+-- Run this script connected to the same database configured in .env as NAMEDB.
+-- Example:
+-- psql -h <HOST> -U <USERDB> -d <NAMEDB> -f sql/create_contact_messages.sql
 
-\connect portfolio
-
-CREATE TABLE IF NOT EXISTS contact_messages (
+CREATE TABLE IF NOT EXISTS public.contact_messages (
   id BIGSERIAL PRIMARY KEY,
   nome VARCHAR(120) NOT NULL,
   email VARCHAR(180) NOT NULL,
@@ -16,4 +12,4 @@ CREATE TABLE IF NOT EXISTS contact_messages (
 );
 
 CREATE INDEX IF NOT EXISTS idx_contact_messages_created_at
-  ON contact_messages (created_at DESC);
+  ON public.contact_messages (created_at DESC);
